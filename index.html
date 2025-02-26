@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
     <link rel="stylesheet"
@@ -17,16 +16,28 @@
     <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"
             integrity="sha384-8Vi8VHwn3vjQ9eUHUxex3JSN/NFqUg3QbPyX8kWyb93+8AC/pPWTzj+nHtbC5bxD"
             crossorigin="anonymous"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var board2 = Chessboard('board2', {
-                position: 'start',
-                pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
-            });
-        })
-    </script>
 </head>
 <body>
-    <div id="board2" style="width: 400px"></div>
+    <div id="board" style="width: 300px"></div> 
+    <button id="ruyLopez">ruylopez</button>
+    <button id="start">start</button>
+
+    <script>
+        var ruyLopez = 'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R'
+
+        var config = {
+            position: 'start',
+            pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png',  
+        }
+
+        var board = Chessboard('board',config);
+
+        document.getElementById("ruyLopez").addEventListener("click", function() {
+            board.position(ruyLopez);
+        });
+        document.getElementById("start").addEventListener("click", function() {
+            board.position('start');
+        });
+    </script>
 </body>
 </html>
